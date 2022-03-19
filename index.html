@@ -23,7 +23,7 @@
       <label for="pages">Number of Pages:</label>
       <input type="number" id="pages" name="pages" required />
       <label for="read">Read?</label>
-      <input type="text" id="read" name="read" required />
+      <input type="checkbox" name="read" id="read">
       <button type="submit">Add to my Library</button>
     </form>
     <div class="card-container">
@@ -35,10 +35,9 @@
           <h6 class="card-subtitle mb-2 text-muted"></h6>
           <span>Pages: </span>
           <p class="card-text"></p>
-          <span>Read?</span>
-          <p class="card-text"></p>
+          <label for="read">Read?</label>
+          <input type="checkbox" name="read" id="read"><br>
           <a href="#" class="delete">Delete</a>
-
         </div>
       </div>
     </div>

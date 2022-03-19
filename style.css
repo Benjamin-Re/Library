@@ -11,6 +11,7 @@ form {
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
+    gap: 10px;
 }
 
 .card-container {
@@ -18,7 +19,6 @@ form {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    border: 2px dotted pink;
 }
 
 .card {

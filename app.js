@@ -2,9 +2,9 @@ let myLibrary = [];
 let i = 0;
 
 // the constructor...
-function Book(author, title, pages, read) {
-  this.author = author;
+function Book(title, author, pages, read) {
   this.title = title;
+  this.author = author;
   this.pages = pages;
   this.read = read;
 }
@@ -20,7 +20,7 @@ const starterBook = {
   title: "Fiesta",
   author: "Hemmingway",
   pages: 200,
-  read: true,
+  read: "true",
 };
 myLibrary.push(starterBook);
 
@@ -45,7 +45,7 @@ function populateCard(n, t, a, p, r) {
   let pages = document.querySelector(`.num${n} p:first-of-type`);
   pages.textContent = p;
 
-  let read = document.querySelector(`.num${n} p:last-of-type`);
+  let read = document.querySelector(`.num${n} input[type='checkbox']`).checked=r;
   read.textContent = r;
 }
 
@@ -53,11 +53,10 @@ function populateCard(n, t, a, p, r) {
 const form = document.getElementById("addBook");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(form.elements[0].value);
-  author = form.elements[0].value;
-  title = form.elements[1].value;
+  title = form.elements[0].value;
+  author = form.elements[1].value;
   pages = form.elements[2].value;
-  read = form.elements[3].value;
+  read = form.elements[3].checked;
   addBookToLibrary(author, title, pages, read);
   // Clear the form fields (because we can't refresh the page without loosing our data)
   clearInputs();
