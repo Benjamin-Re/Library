@@ -29,7 +29,7 @@ class Library {
 // View Controller
 class ViewController {
   myLibrary = new Library();
-
+  i=0;
   populateCard(n, book) {
     let title = document.querySelector(`.num${n} .card-title`);
     title.textContent = book.title;
@@ -73,18 +73,18 @@ class ViewController {
       input.value = "";
     }
   }
-
+  
   createCard(tempBook) {
-    let i;
+
     // Create a card for each book
     let clone = document.querySelector(".card").cloneNode(true);
-    clone.classList.remove(`num0`);
-    console.log(clone.classList);
-    clone.classList.add(`num${i++}`);
+    clone.classList.remove("num0");
+    this.i++;
+    clone.classList.add(`num${this.i}`);
     document.querySelector(".card-container").appendChild(clone);
-    this.populateCard(i, tempBook);
+    this.populateCard(this.i, tempBook);
     // Add event listener to the delete button of this new card
-    const deleteLink = document.querySelector(`.num${i} .delete`);
+    const deleteLink = document.querySelector(`.num${this.i} .delete`);
     deleteLink.addEventListener("click", (event) => {
       console.log("Clicked on" + event.currentTarget);
       // Delete the book ( with class .num${i}) from myLibrary
